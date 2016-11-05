@@ -19,34 +19,20 @@ class Create extends Component {
         const { title, children, isLoading, resource, validation } = this.props;
         const basePath = this.getBasePath();
         return (
-            <Card style={{ margin: '2em', opacity: isLoading ? 0.8 : 1 }}>
-                <CardActions style={{ zIndex: 2, display: 'inline-block', float: 'right' }}>
-                    <ListButton basePath={basePath} />
-                </CardActions>
-                <CardTitle title={<Title title={title} defaultTitle={`Create ${inflection.humanize(inflection.singularize(resource))}`} />} />
-                <RecordForm
-                    onSubmit={this.handleSubmit}
-                    resource={resource}
-                    basePath={basePath}
-                    validation={validation}
-                    record={{}}
+            <RecordForm
+                onSubmit={this.handleSubmit}
+                resource={resource}
+                basePath={basePath}
+                validation={validation}
+                record={{}}
                 >
-                    {children}
-                </RecordForm>
-            </Card>
+                {children}
+            </RecordForm>
         );
     }
 }
 
 Create.propTypes = {
-    children: PropTypes.node,
-    crudCreate: PropTypes.func.isRequired,
-    isLoading: PropTypes.bool.isRequired,
-    location: PropTypes.object.isRequired,
-    params: PropTypes.object.isRequired,
-    resource: PropTypes.string.isRequired,
-    title: PropTypes.any,
-    validation: PropTypes.func,
 };
 
 Create.defaultProps = {

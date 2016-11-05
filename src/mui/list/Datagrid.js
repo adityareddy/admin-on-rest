@@ -1,40 +1,19 @@
 import React, { PropTypes } from 'react';
-import { Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn } from 'material-ui/Table';
-import FlatButton from 'material-ui/FlatButton';
-import ContentSort from 'material-ui/svg-icons/content/sort';
-import title from '../../util/title';
 
-const Datagrid = ({ resource, children, ids, data, currentSort, basePath, selectable, updateSort }) => (
-    <Table multiSelectable={selectable}>
-        <TableHeader adjustForCheckbox={selectable} displaySelectAll={selectable}>
-            <TableRow>
-                {React.Children.toArray(children).map(field => (
-                    <TableHeaderColumn key={field.props.label || 'no-key'}>
-                        {(field.props.label || field.props.source) &&
-                            <FlatButton
-                                labelPosition="before"
-                                onClick={updateSort}
-                                data-sort={field.props.source}
-                                label={title(field.props.label, field.props.source)}
-                                icon={field.props.source === currentSort.sort ? <ContentSort style={currentSort.order === 'ASC' ? { transform: 'rotate(180deg)' } : {}} /> : false}
-                            />
-                        }
-                    </TableHeaderColumn>
-                ))}
-            </TableRow>
-        </TableHeader>
-        <TableBody showRowHover displayRowCheckbox={selectable}>
+export const Datagrid = ({ resource, children, ids, data, currentSort, basePath, selectable, updateSort }) => (
+    <table>
+        <tbody>
             {ids.map(id => (
-                <TableRow key={id}>
+                <tr key={id}>
                     {React.Children.toArray(children).map(field => (
-                        <TableRowColumn key={`${id}-${field.props.source}`}>
+                        <td key={`${id}-${field.props.source}`}>
                             <field.type {...field.props} record={data[id]} basePath={basePath} resource={resource} />
-                        </TableRowColumn>
+                        </td>
                     ))}
-                </TableRow>
+                </tr>
             ))}
-        </TableBody>
-    </Table>
+        </tbody>
+    </table>
 );
 
 Datagrid.propTypes = {

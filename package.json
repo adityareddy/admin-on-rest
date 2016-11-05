@@ -9,8 +9,12 @@
     "src"
   ],
   "main": "lib/index",
+    "entry": {
+    "index": "./index.js"
+  },
   "scripts": {
-    "test": "make test"
+    "start": "dora --plugins \"proxy,webpack?disableNpmInstall,webpack-hmr\"",
+    "build": "atool-build"
   },
   "authors": [
     "François Zaninotto"
@@ -20,6 +24,11 @@
   "bugs": "https://github.com/marmelab/admin-on-rest/issues",
   "license": "MIT",
   "devDependencies": {
+    "atool-build": "^0.7.6",
+    "dora": "0.3.x",
+    "dora-plugin-proxy": "^0.7.0",
+    "dora-plugin-webpack": "0.6.x",
+    "dora-plugin-webpack-hmr": "^0.1.0",
     "babel-cli": "~6.14.0",
     "babel-core": "~6.14.0",
     "babel-eslint": "~6.1.2",
@@ -52,7 +61,9 @@
   },
   "dependencies": {
     "babel-runtime": "~6.11.6",
+    "classnames": "2.2.5",
     "dva": "^1.1.0",
+    "feathers-client": "^1.6.2",
     "firebase": "^2.4.2",
     "inflection": "~1.10.0",
     "lodash.debounce": "^4.0.8",
@@ -60,6 +71,7 @@
     "material-ui": "~0.15.4",
     "quill": "^1.0.4",
     "react": "~15.3.1",
+    "react-bootstrap": "^0.30.6",
     "react-dom": "~15.3.1",
     "react-native": "0.35.0",
     "react-native-elements": "^0.6.2",
@@ -70,7 +82,9 @@
     "react-router-redux": "~4.0.5",
     "react-tap-event-plugin": "~1.0.0",
     "redux": "~3.6.0",
+    "redux-auth-wrapper": "^0.8.0",
     "redux-form": "^6.0.5",
-    "redux-saga": "~0.11.1"
+    "redux-saga": "~0.11.1",
+    "socket.io-client": "^1.5.1"
   }
 }

@@ -1,16 +1,16 @@
 import React, { PropTypes } from 'react';
-import TextField from 'material-ui/TextField';
 import title from '../../util/title';
+import { FormGroup, ControlLabel, FormControl, HelpBlock } from 'react-bootstrap';
 
 const TextInput = ({ input, label, meta: { touched, error }, options, type, source }) => (
-    <TextField
+    <FormControl
         value={input.value}
         onChange={input.onChange}
         type={type}
-        floatingLabelText={title(label, source)}
-        errorText={touched && error}
+        label={label}
+        placeholder={label}
         {...options}
-    />
+        />
 );
 
 TextInput.propTypes = {

@@ -1,12 +1,5 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'dva';
-import { push as pushAction } from 'react-router-redux';
-import inflection from 'inflection';
-import { change as changeFormValueAction, getFormValues } from 'redux-form';
-import debounce from 'lodash.debounce';
-import queryReducer, { SET_SORT, SET_PAGE, SET_FILTER } from '../../reducer/resource/list/queryReducer';
-import { crudGetList as crudGetListAction } from '../../actions/dataActions';
-import { changeListParams as changeListParamsAction } from '../../actions/listActions';
 import { View } from 'react-native'
 
 class List extends Component {

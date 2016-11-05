@@ -1,16 +1,10 @@
 import React from 'react';
-import RaisedButton from 'material-ui/RaisedButton';
-import ContentSave from 'material-ui/svg-icons/content/save';
+import {Button} from 'react-bootstrap';
 
-const SaveButton = () => <RaisedButton
+const SaveButton = () => <Button
     type="submit"
-    label="Save"
-    icon={<ContentSave />}
-    primary
-    style={{
-        margin: '10px 24px',
-        position: 'relative',
-    }}
-/>;
+    name="Save"
+    bsStyle="primary"
+>Save</Button>;
 
 export default SaveButton;

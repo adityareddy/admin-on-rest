@@ -4,7 +4,7 @@ install:
 	@npm install
 
 run:
-	@./node_modules/.bin/webpack-dev-server --hot --inline --config ./webpack.config.js
+	@./node_modules/.bin/webpack-dev-server --verbose --colors --display-error-details --hot --config ./webpack.config.js
 
 build:
 	@NODE_ENV=production ./node_modules/.bin/babel ./src -d lib --ignore '*.spec.js'
